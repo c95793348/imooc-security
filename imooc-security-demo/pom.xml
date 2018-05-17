@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.imooc</groupId>
-            <artifactId>imooc-security-core</artifactId>
+            <artifactId>imooc-security-browser</artifactId>
             <version>${imooc.security.version}</version>
         </dependency>
         <dependency>
