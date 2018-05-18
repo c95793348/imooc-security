@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +28,14 @@ import java.util.List;
 public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    /**
+     * 获取当前登录用户信息
+     */
+    @GetMapping("/me")
+    public Object me(@AuthenticationPrincipal UserDetails user){
+        return user;
+    }
 
     @PostMapping
     @JsonView(User.UserSimpleView.class)
